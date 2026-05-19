@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Georgios Triantafillidis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── MAIN SHELL (fills the viewport, no scrolling) ── -->
+  <div class="site-shell">
+
+    <!-- HERO -->
+    <div class="hero-logo">
+      <h1 class="monogram">GT</h1>
+      <div class="hero-jake">
+        <img src="jake2.png" alt="Jake the Dog" class="jake-hero" />
+        <p class="jake-quote" id="jakeQuote"></p>
+      </div>
+    </div>
+
+    <!-- TILES -->
+    <div class="tiles-grid">
+      <button class="tile tile-about"    data-panel="about">    <span>über mich</span>  </button>
+      <button class="tile tile-projects" data-panel="projects"> <span>projekte</span>   </button>
+      <button class="tile tile-aktuell"  data-panel="aktuell">  <span>aktuell</span>    </button>
+      <button class="tile tile-mehr"     data-panel="mehr">     <span>mehr</span>       </button>
+    </div>
+
+    <!-- FOOTER BAR -->
+    <footer class="site-footer">
+      <span class="footer-name">georgios triantafillidis <span class="sep">|</span> ai-student &amp; developer</span>
+      <div class="footer-links">
+        <a href="https://github.com/AlitisCoder" target="_blank" rel="noopener">github ↗</a>
+        <a href="mailto:geotrianta145@gmail.com">e-mail</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ── PANEL OVERLAY ── -->
+  <div class="panel-overlay" id="panelOverlay" role="dialog" aria-modal="true">
+    <div class="panel-wrap">
+      <button class="panel-close" id="panelClose" aria-label="Schließen">✕</button>
+
+      <!-- ÜBER MICH -->
+      <div class="panel-content" id="panel-about">
+        <span class="panel-label">// über mich</span>
+        <div class="panel-about-body">
+          <div class="about-avatar-wrap">
+            <img src="IMG_7327.JPG" alt="Georgios Triantafillidis" class="avatar" />
+            <img src="jake1.png" alt="Jake the Dog" class="jake-intro" />
+          </div>
+          <div class="about-text">
+            <p class="lead">Hallo, ich bin <em>Georgios</em> — Student der Angewandten Künstlichen Intelligenz an der Hochschule Heilbronn.</p>
+            <p class="sub">Ich interessiere mich für Computer Vision, generative Visuals und das Zusammenspiel von Technik und Kreativität. Momentan lerne ich TouchDesigner und bringe nebenbei meine KI-Kenntnisse aus dem Studium in eigene Projekte ein. Hier halte ich fest, woran ich gerade arbeite.</p>
+            <div class="intro-stats">
+              <div class="stat"><span class="stat-n">5</span><span class="stat-l">Projekte</span></div>
+              <div class="stat"><span class="stat-n">5</span><span class="stat-l">Sprachen</span></div>
+              <div class="stat"><span class="stat-n">2025</span><span class="stat-l">Studienstart</span></div>
+            </div>
+            <div class="socials-list">
+              <a href="https://www.instagram.com/vgeo.rosen/" target="_blank" rel="noopener" class="social-link">
+                <span class="social-platform">Instagram</span>
+                <span class="social-handle">@vgeo.rosen</span>
+                <span class="social-arrow">↗</span>
+              </a>
+              <a href="https://open.spotify.com/user/toai1z7cfvzip0fawmtq5ohlm" target="_blank" rel="noopener" class="social-link">
+                <span class="social-platform">Spotify</span>
+                <span class="social-handle">mein Profil</span>
+                <span class="social-arrow">↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJEKTE -->
+      <div class="panel-content" id="panel-projects">
+        <span class="panel-label">// projekte</span>
+        <div class="panel-scroll">
+
+          <article class="project">
+            <div class="project-meta">
+              <span class="lang">Python</span>
+              <a href="https://github.com/AlitisCoder/Metal-Gesture-to-Spotify-Playlist" target="_blank" rel="noopener" class="repo-link">↗</a>
+            </div>
+            <h3>Metal-Geste → Spotify-Playlist</h3>
+            <p>Erkennt die Metal-Handgeste per Computer Vision und startet automatisch eine Rock-Playlist auf Spotify. Für einen Freund gebaut — soll später auch auf einer Website laufen.</p>
+          </article>
+
+          <article class="project">
+            <div class="project-meta">
+              <span class="lang">Python</span>
+              <a href="https://github.com/AlitisCoder/Hand-Tracking-and-Counting-Finger-held-up" target="_blank" rel="noopener" class="repo-link">↗</a>
+            </div>
+            <h3>Hand-Tracking &amp; Fingerzähler</h3>
+            <p>Echtzeit-Handtracking mit MediaPipe und neuronalen Netzen auf Basis von Google-Ressourcen. Zählt hochgehaltene Finger im Bild — erster tiefer Einstieg in Computer Vision.</p>
+          </article>
+
+          <article class="project">
+            <div class="project-meta">
+              <span class="lang">Jupyter Notebook</span>
+              <a href="https://github.com/AlitisCoder/GrundlagenKI-Autonomes-Fahren" target="_blank" rel="noopener" class="repo-link">↗</a>
+            </div>
+            <h3>Autonomes Fahren — Grundlagen KI</h3>
+            <p>Studienaufgabe im Modul <em>Grundlagen KI</em> an der Hochschule Heilbronn. Grundlegende KI-Konzepte angewandt auf Szenarien des autonomen Fahrens.</p>
+          </article>
+
+          <article class="project">
+            <div class="project-meta">
+              <span class="lang">Jupyter Notebook</span>
+              <a href="https://github.com/AlitisCoder/Grundlagen-KI-Supply-Chain-Aufgabe-" target="_blank" rel="noopener" class="repo-link">↗</a>
+            </div>
+            <h3>Supply-Chain-Optimierung — Grundlagen KI</h3>
+            <p>Studienaufgabe zu Supply-Chain-Problemen im Rahmen des KI-Grundlagenmoduls. In Bearbeitung.</p>
+          </article>
+
+          <article class="project">
+            <div class="project-meta">
+              <span class="lang">HTML</span>
+              <a href="https://github.com/AlitisCoder/AlitisCoder.github.io" target="_blank" rel="noopener" class="repo-link">↗</a>
+            </div>
+            <h3>Portfolio-Website</h3>
+            <p>Diese Seite — persönliches Portfolio als statische GitHub-Pages-Site. Gebaut mit Vanilla HTML, CSS und JavaScript.</p>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- AKTUELL -->
+      <div class="panel-content" id="panel-aktuell">
+        <span class="panel-label">// aktuell</span>
+        <div class="panel-scroll">
+          <div class="aktuell-grid">
+
+            <div class="aktuell-card">
+              <span class="aktuell-badge">lerne gerade</span>
+              <h3>TouchDesigner</h3>
+              <p>Echtzeit-Visuals und interaktive Installationen mit TouchDesigner — Schnittpunkt zwischen KI, generativer Kunst und Performance.</p>
+            </div>
+
+            <div class="aktuell-card">
+              <span class="aktuell-badge">studium</span>
+              <h3>Angewandte KI — 2. Semester</h3>
+              <p>Grundlagen der Künstlichen Intelligenz, Mathematik und Programmierung an der Hochschule Heilbronn.</p>
+            </div>
+
+            <div class="aktuell-card">
+              <span class="aktuell-badge">nächstes projekt</span>
+              <h3>Playlist Matcher</h3>
+              <p>Web-App, die anhand von Spotify Wrapped automatisch passende Playlists erstellt. Songs können per Links-/Rechtswischen zur Playlist hinzugefügt oder daraus entfernt werden.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- MEHR (education, experience, skills) -->
+      <div class="panel-content" id="panel-mehr">
+        <span class="panel-label">// mehr</span>
+        <div class="panel-scroll">
+
+          <h2 class="section-title">studium</h2>
+          <div class="edu-entry">
+            <div class="edu-left"><span class="edu-year">2025 — heute</span></div>
+            <div class="edu-right">
+              <strong>Hochschule Heilbronn</strong>
+              <span class="edu-location">Heilbronn, Deutschland</span>
+              <p>Bachelor Angewandte Künstliche Intelligenz.</p>
+            </div>
+          </div>
+
+          <h2 class="section-title">joberfahrung</h2>
+          <div class="job-list">
+
+            <div class="edu-entry">
+              <div class="edu-left"><span class="edu-year">April 2026 — heute</span></div>
+              <div class="edu-right">
+                <strong>Kellner</strong>
+                <span class="edu-location">Markthalle Ludwigsburg, Deutschland</span>
+                <p>Service in der Markthalle Ludwigsburg.</p>
+              </div>
+            </div>
+
+            <div class="edu-entry">
+              <div class="edu-left"><span class="edu-year">Sommer 2024</span></div>
+              <div class="edu-right">
+                <strong>Paketzusteller</strong>
+                <span class="edu-location">Deutsche Post, Deutschland</span>
+                <p>Ferienjob als Paketzusteller bei der Deutschen Post.</p>
+              </div>
+            </div>
+
+            <div class="edu-entry">
+              <div class="edu-left"><span class="edu-year">Sep. 2024 — Jul. 2025</span></div>
+              <div class="edu-right">
+                <strong>FSJ — ASB Hausnotruf</strong>
+                <span class="edu-location">Arbeiter-Samariter-Bund, Deutschland</span>
+                <p>Freiwilliges Soziales Jahr beim ASB im Bereich Hausnotruf.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <h2 class="section-title">fähigkeiten</h2>
+          <div class="skills-grid">
+            <div class="skill-group">
+              <h4>programmierung</h4>
+              <ul>
+                <li>Python</li>
+                <li>HTML / CSS / JavaScript</li>
+                <li>Jupyter Notebook</li>
+                <li>MediaPipe / OpenCV</li>
+                <li>Machine Learning Grundlagen</li>
+                <li>AI Engineering</li>
+              </ul>
+            </div>
+            <div class="skill-group">
+              <h4>sprachen</h4>
+              <ul>
+                <li>Griechisch — Muttersprache</li>
+                <li>Deutsch — Muttersprache</li>
+                <li>Englisch — fließend</li>
+                <li>Französisch — Grundkenntnisse</li>
+                <li>Spanisch — Grundkenntnisse</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- /panel-wrap -->
+  </div><!-- /panel-overlay -->
+
+  <script>
+    const jakeQuotes = [
+      "Dude, sucking at something is the first step to being sorta good at something.",
+      "To live life you need problems. If you get everything you want the minute you want it, then what's the point of living?",
+      "Homies help homies. Always.",
+      "Being crazy is hard. You gotta focus on what's real, man.",
+      "Bad biscuits make the baker broke, bro.",
+      "I love food more than I love people.",
+      "Just do whatever you want, man, as long as it comes from the inside.",
+      "Now go sit in the corner and think about your life.",
+      "Sometimes life is scary and dark. That is why we must find the light.",
+      "You don't just read the poetry to understand it, you got to feel it.",
+      "Your heart may be small, but it's strong as a bull donk.",
+      "I know who I am, and I'll know what I want if and when it ever comes along.",
+      "The unknown is where all the fun stuff happens.",
+      "Don't be afraid to dream big.",
+      "Always stay curious, my friend. The world is a weird and wonderful place.",
+      "Sometimes, the best adventures are the ones you didn't plan.",
+      "The imagination is a powerful tool. It can take you to places you've never been.",
+      "I've always got room for ice cream.",
+      "Adventure isn't about the destination; it's about the journey and the friends you make along the way.",
+      "Logic is the magic of truth and the skeleton of reality.",
+    ];
+
+    // Initial quote
+    let quoteIdx = Math.floor(Math.random() * jakeQuotes.length);
+    const quoteEl = document.getElementById('jakeQuote');
+    quoteEl.textContent = '"' + jakeQuotes[quoteIdx] + '"';
+
+    // Click to cycle quotes
+    quoteEl.addEventListener('click', () => {
+      quoteEl.style.opacity = '0';
+      setTimeout(() => {
+        quoteIdx = (quoteIdx + 1) % jakeQuotes.length;
+        quoteEl.textContent = '"' + jakeQuotes[quoteIdx] + '"';
+        quoteEl.style.opacity = '1';
+      }, 200);
+    });
+
+    // ── Panel logic ──
+    const overlay   = document.getElementById('panelOverlay');
+    const closeBtn  = document.getElementById('panelClose');
+    let activeTile  = null;
+
+    function openPanel(id) {
+      document.querySelectorAll('.panel-content').forEach(p => p.classList.remove('active'));
+      const target = document.getElementById('panel-' + id);
+      if (target) target.classList.add('active');
+      overlay.dataset.theme = id;
+      overlay.classList.add('active');
+      closeBtn.focus();
+    }
+
+    function closePanel() {
+      overlay.classList.remove('active');
+      delete overlay.dataset.theme;
+      if (activeTile) { activeTile.focus(); activeTile = null; }
+    }
+
+    document.querySelectorAll('.tile').forEach(tile => {
+      tile.addEventListener('click', () => {
+        activeTile = tile;
+        openPanel(tile.dataset.panel);
+      });
+    });
+
+    closeBtn.addEventListener('click', closePanel);
+
+    overlay.addEventListener('click', e => {
+      if (e.target === overlay) closePanel();
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && overlay.classList.contains('active')) closePanel();
+    });
+
+    // ── Jake click pop ──
+    const jakeHero = document.querySelector('.jake-hero');
+    jakeHero.addEventListener('click', () => {
+      jakeHero.classList.remove('jake-popping');
+      void jakeHero.offsetWidth;
+      jakeHero.classList.add('jake-popping');
+      jakeHero.addEventListener('animationend', () => jakeHero.classList.remove('jake-popping'), { once: true });
+    });
+
+    // Jake in panel
+    const jakePanel = document.querySelector('.jake-intro');
+    if (jakePanel) {
+      jakePanel.addEventListener('click', () => {
+        jakePanel.classList.remove('jake-popping');
+        void jakePanel.offsetWidth;
+        jakePanel.classList.add('jake-popping');
+        jakePanel.addEventListener('animationend', () => jakePanel.classList.remove('jake-popping'), { once: true });
+      });
+    }
+
+    // Avatar click
+    const avatar = document.querySelector('.avatar');
+    if (avatar) {
+      avatar.addEventListener('click', () => {
+        avatar.classList.remove('avatar-popping');
+        void avatar.offsetWidth;
+        avatar.classList.add('avatar-popping');
+        avatar.addEventListener('animationend', () => avatar.classList.remove('avatar-popping'), { once: true });
+      });
+    }
+  </script>
+
+</body>
+</html>
