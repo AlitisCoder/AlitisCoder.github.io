@@ -11,233 +11,274 @@
 </head>
 <body>
 
-  <!-- ── MAIN SHELL (fills the viewport, no scrolling) ── -->
-  <div class="site-shell">
+  <!-- ── STICKY HEADER ── -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="#hero" class="header-brand">GT</a>
+      <nav class="tab-nav">
+        <a href="#about"    class="tab tab-about"    data-section="about">über mich</a>
+        <a href="#projects" class="tab tab-projects" data-section="projects">projekte</a>
+        <a href="#aktuell"  class="tab tab-aktuell"  data-section="aktuell">aktuell</a>
+        <a href="#mehr"     class="tab tab-mehr"     data-section="mehr">Bildung &amp; Fähigkeiten</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- HERO -->
-    <div class="hero-logo">
-      <h1 class="monogram">GT</h1>
-      <div class="hero-jake">
-        <img src="jake2.png" alt="Jake the Dog" class="jake-hero" />
-        <p class="jake-quote" id="jakeQuote"></p>
+  <!-- ── HERO ── -->
+  <section class="hero-section" id="hero">
+    <canvas class="scratch-canvas" id="scratchCanvas"></canvas>
+    <h1 class="monogram">AlitisCoder</h1>
+    <div class="hero-info">
+      <p class="hero-name">Georgios Triantafillidis</p>
+      <p class="hero-role">ai-student &amp; developer</p>
+    </div>
+    <div class="hero-jake">
+      <img src="jake2.png" alt="Jake the Dog" class="jake-hero" />
+      <p class="jake-quote" id="jakeQuote"></p>
+    </div>
+    <div class="scroll-hint">scroll ↓</div>
+  </section>
+
+  <!-- ── ÜBER MICH ── -->
+  <section class="page-section" id="about" data-theme="about">
+    <div class="section-inner">
+      <span class="panel-label reveal">// über mich</span>
+      <div class="panel-about-body reveal">
+        <div class="about-avatar-wrap">
+          <img src="IMG_7327.JPG" alt="Georgios Triantafillidis" class="avatar" />
+          <img src="jake1.png" alt="Jake the Dog" class="jake-intro" />
+        </div>
+        <div class="about-text">
+          <p class="lead">Hallo, ich bin <em>Georgios</em> — Student der Angewandten Künstlichen Intelligenz an der Hochschule Heilbronn.</p>
+          <p class="sub">Ich interessiere mich für Computer Vision, generative Visuals, Cybersecurity und das Zusammenspiel von Technik und Kreativität. Momentan lerne ich TouchDesigner und bringe nebenbei meine KI-Kenntnisse aus dem Studium in eigene Projekte ein. Hier halte ich fest, woran ich gerade arbeite.</p>
+          <div class="intro-stats">
+            <div class="stat"><span class="stat-n">5</span><span class="stat-l">Projekte</span></div>
+            <div class="stat"><span class="stat-n">5</span><span class="stat-l">Sprachen</span></div>
+            <div class="stat"><span class="stat-n">2025</span><span class="stat-l">Studienstart</span></div>
+          </div>
+          <div class="socials-list">
+            <a href="https://www.instagram.com/vgeo.rosen/" target="_blank" rel="noopener" class="social-link">
+              <span class="social-platform">Instagram</span>
+              <span class="social-handle">@vgeo.rosen</span>
+              <span class="social-arrow">↗</span>
+            </a>
+            <a href="https://open.spotify.com/user/toai1z7cfvzip0fawmtq5ohlm" target="_blank" rel="noopener" class="social-link">
+              <span class="social-platform">Spotify</span>
+              <span class="social-handle">mein Profil</span>
+              <span class="social-arrow">↗</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- TILES -->
-    <div class="tiles-grid">
-      <button class="tile tile-about"    data-panel="about">    <span>über mich</span>  </button>
-      <button class="tile tile-projects" data-panel="projects"> <span>projekte</span>   </button>
-      <button class="tile tile-aktuell"  data-panel="aktuell">  <span>aktuell</span>    </button>
-      <button class="tile tile-mehr"     data-panel="mehr">     <span>mehr</span>       </button>
+  <!-- ── PROJEKTE ── -->
+  <section class="page-section" id="projects" data-theme="projects">
+    <div class="section-inner">
+      <span class="panel-label reveal">// projekte</span>
+      <div class="panel-scroll">
+
+        <article class="project reveal">
+          <div class="project-meta">
+            <span class="lang">Python</span>
+            <a href="https://github.com/AlitisCoder/Metal-Gesture-to-Spotify-Playlist" target="_blank" rel="noopener" class="repo-link">↗</a>
+          </div>
+          <h3>Metal-Geste → Spotify-Playlist</h3>
+          <p>Erkennt die Metal-Handgeste per Computer Vision und startet automatisch eine Rock-Playlist auf Spotify. Für einen Freund gebaut — soll später auch auf einer Website laufen.</p>
+        </article>
+
+        <article class="project reveal">
+          <div class="project-meta">
+            <span class="lang">Python</span>
+            <a href="https://github.com/AlitisCoder/Hand-Tracking-and-Counting-Finger-held-up" target="_blank" rel="noopener" class="repo-link">↗</a>
+          </div>
+          <h3>Hand-Tracking &amp; Fingerzähler</h3>
+          <p>Echtzeit-Handtracking mit MediaPipe und neuronalen Netzen auf Basis von Google-Ressourcen. Zählt hochgehaltene Finger im Bild — erster tiefer Einstieg in Computer Vision.</p>
+        </article>
+
+        <article class="project reveal">
+          <div class="project-meta">
+            <span class="lang">Jupyter Notebook</span>
+            <a href="https://github.com/AlitisCoder/GrundlagenKI-Autonomes-Fahren" target="_blank" rel="noopener" class="repo-link">↗</a>
+          </div>
+          <h3>Autonomes Fahren — Grundlagen KI</h3>
+          <p>Studienaufgabe im Modul <em>Grundlagen KI</em> an der Hochschule Heilbronn. Grundlegende KI-Konzepte angewandt auf Szenarien des autonomen Fahrens.</p>
+        </article>
+
+        <article class="project reveal">
+          <div class="project-meta">
+            <span class="lang">Jupyter Notebook</span>
+            <a href="https://github.com/AlitisCoder/Grundlagen-KI-Supply-Chain-Aufgabe-" target="_blank" rel="noopener" class="repo-link">↗</a>
+          </div>
+          <h3>Supply-Chain-Optimierung — Grundlagen KI</h3>
+          <p>Studienaufgabe zu Supply-Chain-Problemen im Rahmen des KI-Grundlagenmoduls. In Bearbeitung.</p>
+        </article>
+
+        <article class="project reveal">
+          <div class="project-meta">
+            <span class="lang">HTML</span>
+            <a href="https://github.com/AlitisCoder/AlitisCoder.github.io" target="_blank" rel="noopener" class="repo-link">↗</a>
+          </div>
+          <h3>Portfolio-Website</h3>
+          <p>Diese Seite — persönliches Portfolio als statische GitHub-Pages-Site. Gebaut mit Vanilla HTML, CSS und JavaScript.</p>
+        </article>
+
+      </div>
     </div>
+  </section>
 
-    <!-- FOOTER BAR -->
-    <footer class="site-footer">
-      <span class="footer-name">georgios triantafillidis <span class="sep">|</span> ai-student &amp; developer</span>
-      <div class="footer-links">
-        <a href="https://github.com/AlitisCoder" target="_blank" rel="noopener">github ↗</a>
-        <a href="mailto:geotrianta145@gmail.com">e-mail</a>
+  <!-- ── AKTUELL ── -->
+  <section class="page-section" id="aktuell" data-theme="aktuell">
+    <div class="section-inner">
+      <span class="panel-label reveal">// aktuell</span>
+      <div class="aktuell-grid">
+
+        <div class="aktuell-card reveal">
+          <span class="aktuell-badge">lerne gerade</span>
+          <h3>TouchDesigner</h3>
+          <p>Echtzeit-Visuals und interaktive Installationen mit TouchDesigner — Schnittpunkt zwischen KI, generativer Kunst und Performance.</p>
+        </div>
+
+        <div class="aktuell-card reveal">
+          <span class="aktuell-badge">studium</span>
+          <h3>Angewandte KI — 2. Semester</h3>
+          <p>Grundlagen der Künstlichen Intelligenz, Mathematik und Programmierung an der Hochschule Heilbronn.</p>
+        </div>
+
+        <div class="aktuell-card reveal">
+          <span class="aktuell-badge">nächstes projekt</span>
+          <h3>Playlist Matcher</h3>
+          <p>Web-App, die anhand von Spotify Wrapped automatisch passende Playlists erstellt. Songs können per Links-/Rechtswischen zur Playlist hinzugefügt oder daraus entfernt werden.</p>
+        </div>
+
       </div>
-    </footer>
-  </div>
+    </div>
+  </section>
 
-  <!-- ── PANEL OVERLAY ── -->
-  <div class="panel-overlay" id="panelOverlay" role="dialog" aria-modal="true">
-    <div class="panel-wrap">
-      <button class="panel-close" id="panelClose" aria-label="Schließen">✕</button>
+  <!-- ── MEHR ── -->
+  <section class="page-section" id="mehr" data-theme="mehr">
+    <div class="section-inner">
+      <span class="panel-label reveal">// bildung &amp; fähigkeiten</span>
 
-      <!-- ÜBER MICH -->
-      <div class="panel-content" id="panel-about">
-        <span class="panel-label">// über mich</span>
-        <div class="panel-about-body">
-          <div class="about-avatar-wrap">
-            <img src="IMG_7327.JPG" alt="Georgios Triantafillidis" class="avatar" />
-            <img src="jake1.png" alt="Jake the Dog" class="jake-intro" />
-          </div>
-          <div class="about-text">
-            <p class="lead">Hallo, ich bin <em>Georgios</em> — Student der Angewandten Künstlichen Intelligenz an der Hochschule Heilbronn.</p>
-            <p class="sub">Ich interessiere mich für Computer Vision, generative Visuals und das Zusammenspiel von Technik und Kreativität. Momentan lerne ich TouchDesigner und bringe nebenbei meine KI-Kenntnisse aus dem Studium in eigene Projekte ein. Hier halte ich fest, woran ich gerade arbeite.</p>
-            <div class="intro-stats">
-              <div class="stat"><span class="stat-n">5</span><span class="stat-l">Projekte</span></div>
-              <div class="stat"><span class="stat-n">5</span><span class="stat-l">Sprachen</span></div>
-              <div class="stat"><span class="stat-n">2025</span><span class="stat-l">Studienstart</span></div>
-            </div>
-            <div class="socials-list">
-              <a href="https://www.instagram.com/vgeo.rosen/" target="_blank" rel="noopener" class="social-link">
-                <span class="social-platform">Instagram</span>
-                <span class="social-handle">@vgeo.rosen</span>
-                <span class="social-arrow">↗</span>
-              </a>
-              <a href="https://open.spotify.com/user/toai1z7cfvzip0fawmtq5ohlm" target="_blank" rel="noopener" class="social-link">
-                <span class="social-platform">Spotify</span>
-                <span class="social-handle">mein Profil</span>
-                <span class="social-arrow">↗</span>
-              </a>
-            </div>
-          </div>
+      <h2 class="section-title reveal">studium</h2>
+      <div class="edu-entry reveal">
+        <div class="edu-left"><span class="edu-year">2025 — heute</span></div>
+        <div class="edu-right">
+          <strong>Hochschule Heilbronn</strong>
+          <span class="edu-location">Heilbronn, Deutschland</span>
+          <p>Bachelor Angewandte Künstliche Intelligenz.</p>
         </div>
       </div>
 
-      <!-- PROJEKTE -->
-      <div class="panel-content" id="panel-projects">
-        <span class="panel-label">// projekte</span>
-        <div class="panel-scroll">
+      <h2 class="section-title reveal">joberfahrung</h2>
+      <div class="job-list">
 
-          <article class="project">
-            <div class="project-meta">
-              <span class="lang">Python</span>
-              <a href="https://github.com/AlitisCoder/Metal-Gesture-to-Spotify-Playlist" target="_blank" rel="noopener" class="repo-link">↗</a>
-            </div>
-            <h3>Metal-Geste → Spotify-Playlist</h3>
-            <p>Erkennt die Metal-Handgeste per Computer Vision und startet automatisch eine Rock-Playlist auf Spotify. Für einen Freund gebaut — soll später auch auf einer Website laufen.</p>
-          </article>
+        <div class="edu-entry reveal">
+          <div class="edu-left"><span class="edu-year">April 2026 — heute</span></div>
+          <div class="edu-right">
+            <strong>Kellner</strong>
+            <span class="edu-location">Markthalle Ludwigsburg, Deutschland</span>
+            <p>Service in der Markthalle Ludwigsburg.</p>
+          </div>
+        </div>
 
-          <article class="project">
-            <div class="project-meta">
-              <span class="lang">Python</span>
-              <a href="https://github.com/AlitisCoder/Hand-Tracking-and-Counting-Finger-held-up" target="_blank" rel="noopener" class="repo-link">↗</a>
-            </div>
-            <h3>Hand-Tracking &amp; Fingerzähler</h3>
-            <p>Echtzeit-Handtracking mit MediaPipe und neuronalen Netzen auf Basis von Google-Ressourcen. Zählt hochgehaltene Finger im Bild — erster tiefer Einstieg in Computer Vision.</p>
-          </article>
+        <div class="edu-entry reveal">
+          <div class="edu-left"><span class="edu-year">Sommer 2024</span></div>
+          <div class="edu-right">
+            <strong>Paketzusteller</strong>
+            <span class="edu-location">Deutsche Post, Deutschland</span>
+            <p>Ferienjob als Paketzusteller bei der Deutschen Post.</p>
+          </div>
+        </div>
 
-          <article class="project">
-            <div class="project-meta">
-              <span class="lang">Jupyter Notebook</span>
-              <a href="https://github.com/AlitisCoder/GrundlagenKI-Autonomes-Fahren" target="_blank" rel="noopener" class="repo-link">↗</a>
-            </div>
-            <h3>Autonomes Fahren — Grundlagen KI</h3>
-            <p>Studienaufgabe im Modul <em>Grundlagen KI</em> an der Hochschule Heilbronn. Grundlegende KI-Konzepte angewandt auf Szenarien des autonomen Fahrens.</p>
-          </article>
+        <div class="edu-entry reveal">
+          <div class="edu-left"><span class="edu-year">Sep. 2024 — Jul. 2025</span></div>
+          <div class="edu-right">
+            <strong>FSJ — ASB Hausnotruf</strong>
+            <span class="edu-location">Arbeiter-Samariter-Bund, Deutschland</span>
+            <p>Freiwilliges Soziales Jahr beim ASB im Bereich Hausnotruf.</p>
+          </div>
+        </div>
 
-          <article class="project">
-            <div class="project-meta">
-              <span class="lang">Jupyter Notebook</span>
-              <a href="https://github.com/AlitisCoder/Grundlagen-KI-Supply-Chain-Aufgabe-" target="_blank" rel="noopener" class="repo-link">↗</a>
-            </div>
-            <h3>Supply-Chain-Optimierung — Grundlagen KI</h3>
-            <p>Studienaufgabe zu Supply-Chain-Problemen im Rahmen des KI-Grundlagenmoduls. In Bearbeitung.</p>
-          </article>
+      </div>
 
-          <article class="project">
-            <div class="project-meta">
-              <span class="lang">HTML</span>
-              <a href="https://github.com/AlitisCoder/AlitisCoder.github.io" target="_blank" rel="noopener" class="repo-link">↗</a>
-            </div>
-            <h3>Portfolio-Website</h3>
-            <p>Diese Seite — persönliches Portfolio als statische GitHub-Pages-Site. Gebaut mit Vanilla HTML, CSS und JavaScript.</p>
-          </article>
-
+      <h2 class="section-title reveal">fähigkeiten</h2>
+      <div class="skills-grid">
+        <div class="skill-group reveal">
+          <h4>programmierung</h4>
+          <ul>
+            <li>Python</li>
+            <li>HTML / CSS / JavaScript</li>
+            <li>Jupyter Notebook</li>
+            <li>MediaPipe / OpenCV</li>
+            <li>Machine Learning Grundlagen</li>
+            <li>AI Engineering</li>
+          </ul>
+        </div>
+        <div class="skill-group reveal">
+          <h4>sprachen</h4>
+          <ul>
+            <li>Griechisch — Muttersprache</li>
+            <li>Deutsch — Muttersprache</li>
+            <li>Englisch — fließend</li>
+            <li>Französisch — Grundkenntnisse</li>
+            <li>Spanisch — Grundkenntnisse</li>
+          </ul>
         </div>
       </div>
 
-      <!-- AKTUELL -->
-      <div class="panel-content" id="panel-aktuell">
-        <span class="panel-label">// aktuell</span>
-        <div class="panel-scroll">
-          <div class="aktuell-grid">
+    </div>
+  </section>
 
-            <div class="aktuell-card">
-              <span class="aktuell-badge">lerne gerade</span>
-              <h3>TouchDesigner</h3>
-              <p>Echtzeit-Visuals und interaktive Installationen mit TouchDesigner — Schnittpunkt zwischen KI, generativer Kunst und Performance.</p>
-            </div>
-
-            <div class="aktuell-card">
-              <span class="aktuell-badge">studium</span>
-              <h3>Angewandte KI — 2. Semester</h3>
-              <p>Grundlagen der Künstlichen Intelligenz, Mathematik und Programmierung an der Hochschule Heilbronn.</p>
-            </div>
-
-            <div class="aktuell-card">
-              <span class="aktuell-badge">nächstes projekt</span>
-              <h3>Playlist Matcher</h3>
-              <p>Web-App, die anhand von Spotify Wrapped automatisch passende Playlists erstellt. Songs können per Links-/Rechtswischen zur Playlist hinzugefügt oder daraus entfernt werden.</p>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- MEHR (education, experience, skills) -->
-      <div class="panel-content" id="panel-mehr">
-        <span class="panel-label">// mehr</span>
-        <div class="panel-scroll">
-
-          <h2 class="section-title">studium</h2>
-          <div class="edu-entry">
-            <div class="edu-left"><span class="edu-year">2025 — heute</span></div>
-            <div class="edu-right">
-              <strong>Hochschule Heilbronn</strong>
-              <span class="edu-location">Heilbronn, Deutschland</span>
-              <p>Bachelor Angewandte Künstliche Intelligenz.</p>
-            </div>
-          </div>
-
-          <h2 class="section-title">joberfahrung</h2>
-          <div class="job-list">
-
-            <div class="edu-entry">
-              <div class="edu-left"><span class="edu-year">April 2026 — heute</span></div>
-              <div class="edu-right">
-                <strong>Kellner</strong>
-                <span class="edu-location">Markthalle Ludwigsburg, Deutschland</span>
-                <p>Service in der Markthalle Ludwigsburg.</p>
-              </div>
-            </div>
-
-            <div class="edu-entry">
-              <div class="edu-left"><span class="edu-year">Sommer 2024</span></div>
-              <div class="edu-right">
-                <strong>Paketzusteller</strong>
-                <span class="edu-location">Deutsche Post, Deutschland</span>
-                <p>Ferienjob als Paketzusteller bei der Deutschen Post.</p>
-              </div>
-            </div>
-
-            <div class="edu-entry">
-              <div class="edu-left"><span class="edu-year">Sep. 2024 — Jul. 2025</span></div>
-              <div class="edu-right">
-                <strong>FSJ — ASB Hausnotruf</strong>
-                <span class="edu-location">Arbeiter-Samariter-Bund, Deutschland</span>
-                <p>Freiwilliges Soziales Jahr beim ASB im Bereich Hausnotruf.</p>
-              </div>
-            </div>
-
-          </div>
-
-          <h2 class="section-title">fähigkeiten</h2>
-          <div class="skills-grid">
-            <div class="skill-group">
-              <h4>programmierung</h4>
-              <ul>
-                <li>Python</li>
-                <li>HTML / CSS / JavaScript</li>
-                <li>Jupyter Notebook</li>
-                <li>MediaPipe / OpenCV</li>
-                <li>Machine Learning Grundlagen</li>
-                <li>AI Engineering</li>
-              </ul>
-            </div>
-            <div class="skill-group">
-              <h4>sprachen</h4>
-              <ul>
-                <li>Griechisch — Muttersprache</li>
-                <li>Deutsch — Muttersprache</li>
-                <li>Englisch — fließend</li>
-                <li>Französisch — Grundkenntnisse</li>
-                <li>Spanisch — Grundkenntnisse</li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div><!-- /panel-wrap -->
-  </div><!-- /panel-overlay -->
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer">
+    <span class="footer-name">georgios triantafillidis <span class="sep">|</span> ai-student &amp; developer <span class="sep">|</span> erstellt mithilfe von Claude Code</span>
+    <div class="footer-links">
+      <a href="https://github.com/AlitisCoder" target="_blank" rel="noopener">github ↗</a>
+      <a href="mailto:geotrianta145@gmail.com">e-mail</a>
+    </div>
+  </footer>
 
   <script>
+    // ── Scratch card ──
+    const canvas  = document.getElementById('scratchCanvas');
+    const ctx     = canvas.getContext('2d');
+    let scratching = false;
+
+    function resizeCanvas() {
+      const hero = canvas.parentElement;
+      canvas.width  = hero.offsetWidth;
+      canvas.height = hero.offsetHeight;
+      ctx.fillStyle = '#3b3925';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    function scratch(x, y) {
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.beginPath();
+      ctx.arc(x, y, 38, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    function getPos(e) {
+      const r = canvas.getBoundingClientRect();
+      if (e.touches) return { x: e.touches[0].clientX - r.left, y: e.touches[0].clientY - r.top };
+      return { x: e.clientX - r.left, y: e.clientY - r.top };
+    }
+
+    canvas.addEventListener('mousedown',  e => { scratching = true;  scratch(...Object.values(getPos(e))); });
+    canvas.addEventListener('mousemove',  e => { if (scratching) scratch(...Object.values(getPos(e))); });
+    canvas.addEventListener('mouseup',    () => scratching = false);
+    canvas.addEventListener('mouseleave', () => scratching = false);
+    canvas.addEventListener('touchstart', e => { e.preventDefault(); scratching = true;  scratch(...Object.values(getPos(e))); }, { passive: false });
+    canvas.addEventListener('touchmove',  e => { e.preventDefault(); if (scratching) scratch(...Object.values(getPos(e))); }, { passive: false });
+    canvas.addEventListener('touchend',   () => scratching = false);
+
+    // ── Jake quotes ──
     const jakeQuotes = [
       "Dude, sucking at something is the first step to being sorta good at something.",
       "To live life you need problems. If you get everything you want the minute you want it, then what's the point of living?",
@@ -261,12 +302,10 @@
       "Logic is the magic of truth and the skeleton of reality.",
     ];
 
-    // Initial quote
     let quoteIdx = Math.floor(Math.random() * jakeQuotes.length);
     const quoteEl = document.getElementById('jakeQuote');
     quoteEl.textContent = '"' + jakeQuotes[quoteIdx] + '"';
 
-    // Click to cycle quotes
     quoteEl.addEventListener('click', () => {
       quoteEl.style.opacity = '0';
       setTimeout(() => {
@@ -276,64 +315,59 @@
       }, 200);
     });
 
-    // ── Panel logic ──
-    const overlay   = document.getElementById('panelOverlay');
-    const closeBtn  = document.getElementById('panelClose');
-    let activeTile  = null;
+    // ── Header on scroll ──
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
 
-    function openPanel(id) {
-      document.querySelectorAll('.panel-content').forEach(p => p.classList.remove('active'));
-      const target = document.getElementById('panel-' + id);
-      if (target) target.classList.add('active');
-      overlay.dataset.theme = id;
-      overlay.classList.add('active');
-      closeBtn.focus();
-    }
+    // ── Active tab on scroll ──
+    const sections = document.querySelectorAll('.page-section');
+    const tabs = document.querySelectorAll('.tab[data-section]');
 
-    function closePanel() {
-      overlay.classList.remove('active');
-      delete overlay.dataset.theme;
-      if (activeTile) { activeTile.focus(); activeTile = null; }
-    }
-
-    document.querySelectorAll('.tile').forEach(tile => {
-      tile.addEventListener('click', () => {
-        activeTile = tile;
-        openPanel(tile.dataset.panel);
+    function updateActiveTab() {
+      const scrollY = window.scrollY;
+      const offset  = header.offsetHeight + 80;
+      let current   = '';
+      sections.forEach(sec => {
+        if (scrollY >= sec.offsetTop - offset) current = sec.id;
       });
-    });
+      tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.section === current));
+    }
 
-    closeBtn.addEventListener('click', closePanel);
+    window.addEventListener('scroll', updateActiveTab, { passive: true });
 
-    overlay.addEventListener('click', e => {
-      if (e.target === overlay) closePanel();
-    });
+    // ── Scroll reveal ──
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && overlay.classList.contains('active')) closePanel();
+    // Stagger siblings within each section
+    document.querySelectorAll('.section-inner').forEach(inner => {
+      inner.querySelectorAll('.reveal').forEach((el, i) => {
+        el.style.transitionDelay = (i * 0.07) + 's';
+        revealObserver.observe(el);
+      });
     });
 
     // ── Jake click pop ──
-    const jakeHero = document.querySelector('.jake-hero');
-    jakeHero.addEventListener('click', () => {
-      jakeHero.classList.remove('jake-popping');
-      void jakeHero.offsetWidth;
-      jakeHero.classList.add('jake-popping');
-      jakeHero.addEventListener('animationend', () => jakeHero.classList.remove('jake-popping'), { once: true });
-    });
-
-    // Jake in panel
-    const jakePanel = document.querySelector('.jake-intro');
-    if (jakePanel) {
-      jakePanel.addEventListener('click', () => {
-        jakePanel.classList.remove('jake-popping');
-        void jakePanel.offsetWidth;
-        jakePanel.classList.add('jake-popping');
-        jakePanel.addEventListener('animationend', () => jakePanel.classList.remove('jake-popping'), { once: true });
-      });
+    function popEl(el) {
+      el.classList.remove('jake-popping');
+      void el.offsetWidth;
+      el.classList.add('jake-popping');
+      el.addEventListener('animationend', () => el.classList.remove('jake-popping'), { once: true });
     }
 
-    // Avatar click
+    document.querySelector('.jake-hero').addEventListener('click', () => popEl(document.querySelector('.jake-hero')));
+
+    const jakePanel = document.querySelector('.jake-intro');
+    if (jakePanel) jakePanel.addEventListener('click', () => popEl(jakePanel));
+
     const avatar = document.querySelector('.avatar');
     if (avatar) {
       avatar.addEventListener('click', () => {
