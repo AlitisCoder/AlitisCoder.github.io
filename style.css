@@ -114,7 +114,7 @@ body {
   inset: 0;
   width: 100%;
   height: 100%;
-  touch-action: none;
+  touch-action: pan-y;
 }
 
 .hero-section > *:not(.scratch-canvas) {
