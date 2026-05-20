@@ -274,9 +274,31 @@
     canvas.addEventListener('mousemove',  e => { if (scratching) scratch(...Object.values(getPos(e))); });
     canvas.addEventListener('mouseup',    () => scratching = false);
     canvas.addEventListener('mouseleave', () => scratching = false);
-    canvas.addEventListener('touchstart', e => { e.preventDefault(); scratching = true;  scratch(...Object.values(getPos(e))); }, { passive: false });
-    canvas.addEventListener('touchmove',  e => { e.preventDefault(); if (scratching) scratch(...Object.values(getPos(e))); }, { passive: false });
-    canvas.addEventListener('touchend',   () => scratching = false);
+
+    let touchStartX = 0, touchStartY = 0, touchMode = 'unknown';
+
+    canvas.addEventListener('touchstart', e => {
+      const pos = getPos(e);
+      touchStartX = pos.x;
+      touchStartY = pos.y;
+      touchMode   = 'unknown';
+      scratching  = true;
+    }, { passive: true });
+
+    canvas.addEventListener('touchmove', e => {
+      if (!scratching) return;
+      const pos = getPos(e);
+      if (touchMode === 'unknown') {
+        const dx = Math.abs(pos.x - touchStartX);
+        const dy = Math.abs(pos.y - touchStartY);
+        touchMode = dy > dx * 1.5 ? 'scroll' : 'scratch';
+      }
+      if (touchMode === 'scroll') { scratching = false; return; }
+      e.preventDefault();
+      scratch(pos.x, pos.y);
+    }, { passive: false });
+
+    canvas.addEventListener('touchend', () => { scratching = false; touchMode = 'unknown'; });
 
     // ── Jake quotes ──
     const jakeQuotes = [
