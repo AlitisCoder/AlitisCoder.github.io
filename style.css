@@ -93,6 +93,7 @@ body {
 .tab-projects.active { color: #c89040; border-color: #c89040; }
 .tab-aktuell.active  { color: #c08850; border-color: #c08850; }
 .tab-mehr.active     { color: #b0a050; border-color: #b0a050; }
+.tab-certs.active    { color: #b86048; border-color: #b86048; }
 
 /* ── Hero section ── */
 .hero-section {
@@ -254,6 +255,15 @@ body {
   --panel-bg-card:      #121408;
 }
 
+.page-section[data-theme="certs"] {
+  background: #1a1010;
+  --panel-accent:       #b86048;
+  --panel-accent-light: #d07c60;
+  --panel-accent-dark:  #6a3020;
+  --panel-border:       #321810;
+  --panel-bg-card:      #130c08;
+}
+
 /* ── Footer ── */
 .site-footer {
   background: var(--bg-footer);
@@ -344,6 +354,14 @@ body {
   font-size: 0.82rem;
   color: var(--fg-dim);
   line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.sub-meta {
+  margin-top: 0.25rem;
+  color: var(--panel-accent);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
 }
 
 .intro-stats {
@@ -613,6 +631,56 @@ body {
   color: var(--panel-accent);
   font-size: 0.58rem;
   flex-shrink: 0;
+}
+
+/* ── Certifications ── */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-top: 0.25rem;
+}
+
+.cert-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.25rem;
+  background: var(--panel-bg-card);
+  border: 2px solid var(--panel-border);
+  border-radius: 4px;
+  box-shadow: 3px 3px 0 var(--panel-accent-dark);
+  text-decoration: none;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.12s;
+}
+
+.cert-card:hover {
+  border-color: var(--panel-accent);
+  box-shadow: 5px 5px 0 var(--panel-accent-dark);
+  transform: translate(-1px, -1px);
+}
+
+.cert-issuer {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--panel-accent-light);
+}
+
+.cert-name {
+  font-family: var(--display);
+  font-size: 1.3rem;
+  letter-spacing: 0.06em;
+  color: var(--fg);
+  line-height: 1.1;
+}
+
+.cert-link {
+  margin-top: auto;
+  padding-top: 0.6rem;
+  font-size: 0.72rem;
+  color: var(--panel-accent);
+  font-family: var(--mono);
 }
 
 /* ── Scroll reveal ── */
