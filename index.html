@@ -73,6 +73,11 @@
               <span class="social-handle">my profile</span>
               <span class="social-arrow">↗</span>
             </a>
+            <a href="https://www.linkedin.com/in/georgios-triantafillidis-95a028415" target="_blank" rel="noopener" class="social-link">
+              <span class="social-platform">LinkedIn</span>
+              <span class="social-handle">Georgios Triantafillidis</span>
+              <span class="social-arrow">↗</span>
+            </a>
           </div>
         </div>
       </div>
@@ -234,6 +239,16 @@
         </div>
       </div>
 
+      <div class="terminal reveal" id="resumeTerminal">
+        <div class="terminal-bar">
+          <span class="terminal-dot"></span>
+          <span class="terminal-dot"></span>
+          <span class="terminal-dot"></span>
+          <span class="terminal-title">georgios@portfolio ~ </span>
+        </div>
+        <div class="terminal-body" id="terminalBody"></div>
+      </div>
+
     </div>
   </section>
 
@@ -278,7 +293,7 @@
       const hero = canvas.parentElement;
       canvas.width  = hero.offsetWidth;
       canvas.height = hero.offsetHeight;
-      ctx.fillStyle = '#3b3925';
+      ctx.fillStyle = '#1a2010';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
     }
 
@@ -404,6 +419,71 @@
         revealObserver.observe(el);
       });
     });
+
+    // ── Terminal typewriter ──
+    const termBody = document.getElementById('terminalBody');
+    const termLines = [
+      { type: 'cmd',  text: 'cat education.txt' },
+      { type: 'out',  text: '  → B.Sc. Applied AI — Hochschule Heilbronn (2025 – present)' },
+      { type: 'cmd',  text: 'git log --work --oneline' },
+      { type: 'out',  text: '  a3f1c2  Waiter @ Markthalle Ludwigsburg (Apr 2026 – now)' },
+      { type: 'out',  text: '  9b2e4a  FSJ @ ASB Hausnotruf (Sep 2024 – Jul 2025)' },
+      { type: 'out',  text: '  1c8d3f  Delivery Driver @ Deutsche Post (Summer 2024)' },
+      { type: 'cmd',  text: 'skills --list' },
+      { type: 'out',  text: '  code    Python · HTML/CSS/JS · Jupyter · MediaPipe · OpenCV' },
+      { type: 'out',  text: '  human   Greek (native) · German (native) · English (fluent)' },
+      { type: 'cmd',  text: 'echo $OPEN_TO' },
+      { type: 'out',  text: '  internship  |  working-student position  |  heilbronn / stuttgart' },
+    ];
+
+    let tLineIdx = 0, tCharIdx = 0, tCurrent = null, tCursor = null;
+    let termStarted = false;
+
+    function typeNext() {
+      if (tLineIdx >= termLines.length) {
+        if (tCursor) tCursor.remove();
+        const fin = document.createElement('span');
+        fin.className = 't-line';
+        fin.innerHTML = '<span class="t-prompt">~/portfolio $</span> <span class="t-cursor"></span>';
+        termBody.appendChild(fin);
+        return;
+      }
+      const line = termLines[tLineIdx];
+      if (tCharIdx === 0) {
+        if (tCursor) tCursor.remove();
+        tCurrent = document.createElement('span');
+        tCurrent.className = 't-line';
+        if (line.type === 'cmd') {
+          tCurrent.innerHTML = '<span class="t-prompt">~/portfolio $</span> <span class="t-cmd"></span>';
+        } else {
+          tCurrent.innerHTML = '<span class="t-out"></span>';
+        }
+        termBody.appendChild(tCurrent);
+        tCursor = document.createElement('span');
+        tCursor.className = 't-cursor';
+        tCurrent.appendChild(tCursor);
+      }
+      const target = tCurrent.querySelector(line.type === 'cmd' ? '.t-cmd' : '.t-out');
+      target.textContent = line.text.slice(0, tCharIdx + 1);
+      tCharIdx++;
+      if (tCharIdx >= line.text.length) {
+        tLineIdx++; tCharIdx = 0;
+        setTimeout(typeNext, line.type === 'cmd' ? 380 : 80);
+      } else {
+        setTimeout(typeNext, line.type === 'cmd' ? 42 + Math.random() * 40 : 6);
+      }
+    }
+
+    const termObs = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting && !termStarted) {
+        termStarted = true;
+        termObs.disconnect();
+        setTimeout(typeNext, 400);
+      }
+    }, { threshold: 0.25 });
+
+    const termEl = document.getElementById('resumeTerminal');
+    if (termEl) termObs.observe(termEl);
 
     // ── Jake click pop ──
     function popEl(el) {
