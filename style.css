@@ -427,6 +427,14 @@ body {
 /* ── Projects ── */
 .panel-scroll { display: flex; flex-direction: column; gap: 0.75rem; }
 
+.projects-loading {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--fg-dim);
+  letter-spacing: 0.1em;
+  animation: blink 1s step-end infinite;
+}
+
 .project {
   padding: 1.1rem 1.25rem;
   background: var(--panel-bg-card);

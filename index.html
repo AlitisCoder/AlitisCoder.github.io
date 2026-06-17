@@ -58,7 +58,7 @@
           <p class="sub">I'm looking for an internship or working-student position in the AI field where I can contribute and grow.</p>
           <p class="sub sub-meta">📍 Heilbronn/Stuttgart area &nbsp;|&nbsp; 💡 Open for opportunities &nbsp;|&nbsp; 🐙 github.com/AlitisCoder</p>
           <div class="intro-stats">
-            <div class="stat"><span class="stat-n">5</span><span class="stat-l">Projects</span></div>
+            <div class="stat"><span class="stat-n" id="statProjects">—</span><span class="stat-l">Projects</span></div>
             <div class="stat"><span class="stat-n">5</span><span class="stat-l">Languages</span></div>
             <div class="stat"><span class="stat-n">2025</span><span class="stat-l">Since</span></div>
           </div>
@@ -88,53 +88,8 @@
   <section class="page-section" id="projects" data-theme="projects">
     <div class="section-inner">
       <span class="panel-label reveal">// projects</span>
-      <div class="panel-scroll">
-
-        <article class="project reveal">
-          <div class="project-meta">
-            <span class="lang">Python</span>
-            <a href="https://github.com/AlitisCoder/Metal-Gesture-to-Spotify-Playlist" target="_blank" rel="noopener" class="repo-link">↗</a>
-          </div>
-          <h3>Metal Gesture → Spotify Playlist</h3>
-          <p>Detects the metal hand gesture via computer vision and automatically starts a rock playlist on Spotify. Built for a friend — planned to run on a website later.</p>
-        </article>
-
-        <article class="project reveal">
-          <div class="project-meta">
-            <span class="lang">Python</span>
-            <a href="https://github.com/AlitisCoder/Hand-Tracking-and-Counting-Finger-held-up" target="_blank" rel="noopener" class="repo-link">↗</a>
-          </div>
-          <h3>Hand Tracking &amp; Finger Counter</h3>
-          <p>Real-time hand tracking with MediaPipe and neural networks based on Google resources. Counts fingers held up in the frame — my first deep dive into computer vision.</p>
-        </article>
-
-        <article class="project reveal">
-          <div class="project-meta">
-            <span class="lang">Jupyter Notebook</span>
-            <a href="https://github.com/AlitisCoder/GrundlagenKI-Autonomes-Fahren" target="_blank" rel="noopener" class="repo-link">↗</a>
-          </div>
-          <h3>Autonomous Driving — AI Fundamentals</h3>
-          <p>University assignment in the <em>AI Fundamentals</em> module at Hochschule Heilbronn. Core AI concepts applied to autonomous driving scenarios.</p>
-        </article>
-
-        <article class="project reveal">
-          <div class="project-meta">
-            <span class="lang">Jupyter Notebook</span>
-            <a href="https://github.com/AlitisCoder/Grundlagen-KI-Supply-Chain-Aufgabe-" target="_blank" rel="noopener" class="repo-link">↗</a>
-          </div>
-          <h3>Supply Chain Optimization — AI Fundamentals</h3>
-          <p>University assignment on supply chain problems within the AI Fundamentals module. Work in progress.</p>
-        </article>
-
-        <article class="project reveal">
-          <div class="project-meta">
-            <span class="lang">HTML</span>
-            <a href="https://github.com/AlitisCoder/AlitisCoder.github.io" target="_blank" rel="noopener" class="repo-link">↗</a>
-          </div>
-          <h3>Portfolio Website</h3>
-          <p>This site — a personal portfolio as a static GitHub Pages site. Built with vanilla HTML, CSS, and JavaScript.</p>
-        </article>
-
+      <div class="panel-scroll" id="projectsGrid">
+        <p class="projects-loading">loading repos…</p>
       </div>
     </div>
   </section>
@@ -507,6 +462,39 @@
         avatar.addEventListener('animationend', () => avatar.classList.remove('avatar-popping'), { once: true });
       });
     }
+
+    // ── GitHub projects ──
+    async function loadGitHubProjects() {
+      const grid   = document.getElementById('projectsGrid');
+      const statEl = document.getElementById('statProjects');
+      try {
+        const res   = await fetch('https://api.github.com/users/AlitisCoder/repos?sort=pushed&per_page=30');
+        const repos = await res.json();
+        const list  = repos.filter(r => !r.fork);
+
+        grid.innerHTML = list.map(repo => `
+          <article class="project reveal">
+            <div class="project-meta">
+              <span class="lang">${repo.language || 'Code'}</span>
+              <a href="${repo.html_url}" target="_blank" rel="noopener" class="repo-link">↗</a>
+            </div>
+            <h3>${repo.name.replace(/[-_]/g, ' ')}</h3>
+            <p>${repo.description ? repo.description.replace(/</g, '&lt;').replace(/>/g, '&gt;') : ''}</p>
+          </article>
+        `).join('');
+
+        grid.querySelectorAll('.project.reveal').forEach((el, i) => {
+          el.style.transitionDelay = (i * 0.07) + 's';
+          revealObserver.observe(el);
+        });
+
+        if (statEl) statEl.textContent = list.length;
+      } catch {
+        grid.innerHTML = '<p style="color:var(--fg-dim);font-size:0.83rem">Could not load repos.</p>';
+      }
+    }
+
+    loadGitHubProjects();
   </script>
 
 </body>
