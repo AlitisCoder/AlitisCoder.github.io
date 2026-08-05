@@ -47,7 +47,7 @@ body {
 }
 
 .header-inner {
-  max-width: 960px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 1.5rem;
   height: 100%;
@@ -212,10 +212,12 @@ body {
 /* ── Page sections ── */
 .page-section {
   padding: 5rem 1.5rem 6rem;
+  background-image: radial-gradient(rgba(245, 196, 0, 0.055) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
 .section-inner {
-  max-width: 780px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -529,6 +531,27 @@ body {
 }
 
 .aktuell-card p { font-size: 0.8rem; color: var(--fg-mute); line-height: 1.6; }
+
+.aktuell-card--placeholder {
+  border-style: dashed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.aktuell-card--wide {
+  grid-column: 1 / -1;
+}
+
+.commit-grid {
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  gap: 3px;
+}
+
+.commit-cell {
+  aspect-ratio: 1;
+  border-radius: 2px;
+}
 
 /* ── Mehr ── */
 .section-title {

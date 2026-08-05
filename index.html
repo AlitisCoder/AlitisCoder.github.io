@@ -147,9 +147,14 @@
         </div>
 
         <div class="aktuell-card reveal">
-          <span class="aktuell-badge">next project</span>
-          <h3>Playlist Matcher</h3>
+          <span class="aktuell-badge">current</span>
+          <h3>Playlist Creator — Matchify</h3>
           <p>Web app that automatically creates matching playlists based on your Spotify Wrapped. Songs can be added or removed by swiping left or right.</p>
+        </div>
+
+        <div class="aktuell-card aktuell-card--placeholder aktuell-card--wide reveal">
+          <span class="aktuell-badge">on deck</span>
+          <div class="commit-grid" style="margin-top:0.9rem"></div>
         </div>
 
       </div>
@@ -502,7 +507,7 @@
       const grid   = document.getElementById('projectsGrid');
       const statEl = document.getElementById('statProjects');
       try {
-        const res   = await fetch('https://api.github.com/users/AlitisCoder/repos?sort=pushed&per_page=30');
+        const res   = await fetch('https://api.github.com/users/AlitisCoder/repos?sort=pushed&per_page=100');
         const repos = await res.json();
         const list  = repos.filter(r => !r.fork);
 
@@ -529,6 +534,18 @@
     }
 
     loadGitHubProjects();
+
+    // ── Commit grids ──
+    document.querySelectorAll('.commit-grid').forEach(grid => {
+      for (let i = 0; i < 112; i++) {
+        const cell = document.createElement('div');
+        cell.className = 'commit-cell';
+        const r = Math.random();
+        const opacity = r < 0.45 ? 0.07 : r < 0.68 ? 0.22 : r < 0.87 ? 0.52 : 0.85;
+        cell.style.background = `rgba(245,196,0,${opacity})`;
+        grid.appendChild(cell);
+      }
+    });
 
     // ── Jake wink click ──
     (function(){
